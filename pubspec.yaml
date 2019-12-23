@@ -1,6 +1,7 @@
 name: horizantal_picker
 version: 0.0.1+1
 description: You can select your value on Horizantal Picker while scrolling on items.
+author: Levent KANTAROGLU
 homepage: https://github.com/kaiserleka/
 repository: https://github.com/kaiserleka/EnYeniKitapWeb
 documentation: https://github.com/kaiserleka/EnYeniKitapWeb/blob/master/README.md
