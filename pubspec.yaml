@@ -3,8 +3,8 @@ version: 0.0.1+1
 description: You can select your value on Horizantal Picker while scrolling on items.
 author: Levent KANTAROGLU
 homepage: https://github.com/kaiserleka/
-repository: https://github.com/kaiserleka/EnYeniKitapWeb
-documentation: https://github.com/kaiserleka/EnYeniKitapWeb/blob/master/README.md
+repository: https://github.com/kaiserleka/horizantal_picker
+documentation: https://github.com/kaiserleka/horizantal_picker/blob/master/README.md
 
 environment:
   sdk: ">=2.1.0 <3.0.0"
