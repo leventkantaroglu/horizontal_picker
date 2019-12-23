@@ -1,10 +1,10 @@
-name: horizantal_picker
-version: 0.0.1+1
-description: You can select your value on Horizantal Picker while scrolling on items.
-author: Levent KANTAROGLU
+name: horizontal_picker
+version: 0.0.2+1
+description: You can select your value on Horizontal Picker while scrolling on items.
+author: Levent KANTAROGLU <lekadesignandapps@mail.com>
 homepage: https://github.com/kaiserleka/
-repository: https://github.com/kaiserleka/horizantal_picker
-documentation: https://github.com/kaiserleka/horizantal_picker/blob/master/README.md
+repository: https://github.com/kaiserleka/horizontal_picker
+documentation: https://github.com/kaiserleka/horizontal_picker/blob/master/README.md
 
 environment:
   sdk: ">=2.1.0 <3.0.0"
@@ -12,8 +12,7 @@ environment:
 dependencies:
   flutter:
     sdk: flutter
-  cupertino_icons: ^0.1.2
-
+ 
 dev_dependencies:
   flutter_test:
     sdk: flutter

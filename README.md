@@ -1,4 +1,4 @@
 # Horizontal Picker
 
-You can select your value on Horizantal Picker while scrolling on items.
+You can select your value on Horizontal Picker while scrolling on items.
 
