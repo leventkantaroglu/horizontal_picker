@@ -13,9 +13,11 @@ You can select your value on Horizontal Picker while scrolling on items.
 ## Installation
 
 ### Add package to pubspec.yaml
-dependencies:
-  ...
-  __horizontal_picker: ...__
+```
+dependencies:  
+  ...  
+  horizontal_picker: ...
+```
 
 ## Usage Example
 
