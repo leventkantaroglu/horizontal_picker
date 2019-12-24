@@ -24,6 +24,7 @@ class MyHomePage extends StatefulWidget {
 }
 
 class _MyHomePageState extends State<MyHomePage> {
+  double newValue;
   @override
   Widget build(BuildContext context) {
     return Scaffold(
@@ -60,16 +61,21 @@ class _MyHomePageState extends State<MyHomePage> {
             height: 120,
             child: HorizantalPicker(
               minValue: -10,
-              maxValue: 50,
+              maxValue: 55,
               divisions: 600,
               suffix: " cm",
               showCursor: false,
               backgroundColor: Colors.grey.shade900,
               activeItemTextColor: Colors.white,
               passiveItemsTextColor: Colors.amber,
-              onChanged: (value) {},
+              onChanged: (value) {
+                setState(() {
+                  newValue=value;
+                });
+              },
             ),
-          )
+          ),
+          Text(newValue.toString())
         ],
       ),
     );

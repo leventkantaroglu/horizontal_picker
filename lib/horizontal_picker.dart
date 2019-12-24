@@ -1,3 +1,5 @@
+import 'dart:math';
+
 import 'package:flutter/material.dart';
 
 enum InitialPosition { start, center, end }
@@ -5,7 +7,7 @@ enum InitialPosition { start, center, end }
 class HorizantalPicker extends StatefulWidget {
   final double minValue, maxValue;
   final int divisions;
-  final Function(double) onChanged; // !!!
+  final Function(double) onChanged;
   final InitialPosition initialPosition;
   final Color backgroundColor;
   final bool showCursor;
@@ -91,7 +93,11 @@ class _HorizantalPickerState extends State<HorizantalPicker> {
                   onSelectedItemChanged: (item) {
                     curItem = item;
                     setState(() {
-                      widget.onChanged(valueMap[item]["value"] * 1);
+                      int decimalCount = 1;
+                      int fac = pow(10, decimalCount);
+                      valueMap[item]["value"] =
+                          (valueMap[item]["value"] * fac).round() / fac;
+                      widget.onChanged(valueMap[item]["value"]);
                       for (var i = 0; i < valueMap.length; i++) {
                         if (i == item) {
                           valueMap[item]["color"] = widget.activeItemTextColor;
@@ -150,7 +156,10 @@ class _ItemWidgetState extends State<ItemWidget> {
   @override
   void initState() {
     super.initState();
-    var mtext = (widget.curItem["value"] * 1).toStringAsFixed(1);
+    int decimalCount = 1;
+    int fac = pow(10, decimalCount);
+
+    var mtext = ((widget.curItem["value"] * fac).round() / fac).toString();
     textParts = mtext.split(".");
     leftText = textParts.first;
     rightText = textParts.last;
