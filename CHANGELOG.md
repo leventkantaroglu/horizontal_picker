@@ -1,3 +1,7 @@
+## [0.0.5]
+
+* Updated read.me
+
 ## [0.0.4]
 
 * Fixed decimal count bug
