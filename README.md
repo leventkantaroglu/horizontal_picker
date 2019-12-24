@@ -2,7 +2,7 @@
 
 You can select your value on Horizontal Picker while scrolling on items.
 
-Samples
+## Samples
 
 ![Horizontal Picker - Sample 1](https://github.com/kaiserleka/horizontal_picker/blob/master/example/samples/sample1.jpg)
 
@@ -10,11 +10,14 @@ Samples
 
 ![Horizontal Picker - Sample 3](https://github.com/kaiserleka/horizontal_picker/blob/master/example/samples/sample3.jpg)
 
-Installation
+## Installation
 
+### Add package to pubspec.yaml
+dependencies:
+  ...
+  __horizontal_picker: ...__
 
-
-Usage Example
+## Usage Example
 
 
 
