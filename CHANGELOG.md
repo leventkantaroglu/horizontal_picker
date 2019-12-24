@@ -1,3 +1,7 @@
+## [1.0.0]
+
+* Upgraded to stable
+
 ## [0.0.5]
 
 * Updated read.me
