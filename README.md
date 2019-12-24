@@ -12,7 +12,7 @@ You can select your value on Horizontal Picker while scrolling on items.
 
 ## Installation
 
-### Add package to pubspec.yaml
+Add package to pubspec.yaml
 ```
 dependencies:  
   ...  
@@ -20,8 +20,18 @@ dependencies:
 ```
 
 ## Usage Example
-
-
-
+```
+HorizantalPicker(
+  minValue: -10,
+  maxValue: 50,
+  divisions: 600,
+  suffix: " cm",
+  showCursor: false,
+  backgroundColor: Colors.grey.shade900,
+  activeItemTextColor: Colors.white,
+  passiveItemsTextColor: Colors.amber,
+  onChanged: (value) {},
+),
+```
 
 
