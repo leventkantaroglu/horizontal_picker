@@ -12,12 +12,8 @@ You can select your value on Horizontal Picker while scrolling on items.
 
 ## Installation
 
-Add package to pubspec.yaml
-```
-dependencies:  
-  ...  
-  horizontal_picker: ...
-```
+[Installing section](https://pub.dev/packages/flutter_slidable#-installing-tab-)
+
 
 ## Usage Example
 ```
