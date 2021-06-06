@@ -15,28 +15,29 @@ class HorizantalPicker extends StatefulWidget {
   final Color activeItemTextColor;
   final Color passiveItemsTextColor;
   final String suffix;
+
   HorizantalPicker(
-      {@required this.minValue,
-      @required this.maxValue,
-      @required this.divisions,
-      @required this.onChanged,
+      {required this.minValue,
+      required this.maxValue,
+      required this.divisions,
+      required this.onChanged,
       this.initialPosition = InitialPosition.center,
       this.backgroundColor = Colors.white,
       this.showCursor = true,
       this.cursorColor = Colors.red,
       this.activeItemTextColor = Colors.blue,
       this.passiveItemsTextColor = Colors.grey,
-      this.suffix})
-      : assert(minValue < maxValue),
-        assert(onChanged != null);
+      this.suffix = "",})
+      : assert(minValue < maxValue);
+
   @override
   _HorizantalPickerState createState() => _HorizantalPickerState();
 }
 
 class _HorizantalPickerState extends State<HorizantalPicker> {
   List<double> valueList = [];
-  FixedExtentScrollController _scrollController;
-  int curItem;
+  late FixedExtentScrollController _scrollController;
+  late int curItem;
 
   int selectedFontSize = 14;
   List<Map> valueMap = [];
@@ -94,7 +95,7 @@ class _HorizantalPickerState extends State<HorizantalPicker> {
                     curItem = item;
                     setState(() {
                       int decimalCount = 1;
-                      int fac = pow(10, decimalCount);
+                      num fac = pow(10, decimalCount);
                       valueMap[item]["value"] =
                           (valueMap[item]["value"] * fac).round() / fac;
                       widget.onChanged(valueMap[item]["value"]);
@@ -113,11 +114,8 @@ class _HorizantalPickerState extends State<HorizantalPicker> {
                     setState(() {});
                   },
                   children: valueMap.map((Map curValue) {
-                    //print("q");
-                    //print(widget.backgroundColor.toString());
-                    return ItemWidget(curValue,
-                        backgroundColor: widget.backgroundColor,
-                        suffix: widget.suffix);
+                    return ItemWidget(
+                        curValue, widget.backgroundColor, widget.suffix);
                   }).toList()),
             ),
             Visibility(
@@ -144,20 +142,22 @@ class ItemWidget extends StatefulWidget {
   final Map curItem;
   final Color backgroundColor;
   final String suffix;
-  ItemWidget(this.curItem, {this.backgroundColor, this.suffix});
+
+  ItemWidget(this.curItem, this.backgroundColor, this.suffix);
 
   @override
   _ItemWidgetState createState() => _ItemWidgetState();
 }
 
 class _ItemWidgetState extends State<ItemWidget> {
-  List<String> textParts;
-  String leftText, rightText;
+  late List<String> textParts;
+  late String leftText, rightText;
+
   @override
   void initState() {
     super.initState();
     int decimalCount = 1;
-    int fac = pow(10, decimalCount);
+    num fac = pow(10, decimalCount);
 
     var mtext = ((widget.curItem["value"] * fac).round() / fac).toString();
     textParts = mtext.split(".");
@@ -211,7 +211,7 @@ class _ItemWidgetState extends State<ItemWidget> {
                       fontSize: widget.curItem["fontSize"] - 3,
                       color: widget.curItem["color"]),
                 ),
-                (widget.suffix == null)
+                (widget.suffix.isEmpty)
                     ? SizedBox()
                     : Text(
                         widget.suffix,

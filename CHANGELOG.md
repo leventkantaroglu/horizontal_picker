@@ -1,3 +1,6 @@
+## [1.1.0]
+* Updating minimum to 2.12.0 flutter version to add null safety
+
 ## [1.0.0]
 
 * Upgraded to stable

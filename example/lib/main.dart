@@ -24,7 +24,7 @@ class MyHomePage extends StatefulWidget {
 }
 
 class _MyHomePageState extends State<MyHomePage> {
-  double newValue;
+  double? newValue;
   @override
   Widget build(BuildContext context) {
     return Scaffold(
