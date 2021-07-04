@@ -17,7 +17,7 @@ You can select your value on Horizontal Picker while scrolling on items.
 
 ## Usage Example
 ```
-HorizantalPicker(
+HorizontalPicker(
   minValue: -10,
   maxValue: 50,
   divisions: 600,

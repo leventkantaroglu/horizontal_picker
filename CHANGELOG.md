@@ -1,21 +1,23 @@
 ## [1.1.0]
-* Updating minimum to 2.12.0 flutter version to add null safety
+* Update minimum to 2.12.0 flutter version to add null safety
+* Fix widget name
+* Improve code quality
 
 ## [1.0.0]
 
-* Upgraded to stable
+* Upgrade to stable
 
 ## [0.0.5]
 
-* Updated read.me
+* Update readme
 
 ## [0.0.4]
 
-* Fixed decimal count bug
+* Fix decimal count bug
 
 ## [0.0.3]
 
-* Updated read.me
+* Update read
 
 ## [0.0.2]
 

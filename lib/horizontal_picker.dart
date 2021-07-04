@@ -2,9 +2,11 @@ import 'dart:math';
 
 import 'package:flutter/material.dart';
 
+import 'item_widget.dart';
+
 enum InitialPosition { start, center, end }
 
-class HorizantalPicker extends StatefulWidget {
+class HorizontalPicker extends StatefulWidget {
   final double minValue, maxValue;
   final int divisions;
   final Function(double) onChanged;
@@ -16,25 +18,25 @@ class HorizantalPicker extends StatefulWidget {
   final Color passiveItemsTextColor;
   final String suffix;
 
-  HorizantalPicker(
-      {required this.minValue,
-      required this.maxValue,
-      required this.divisions,
-      required this.onChanged,
-      this.initialPosition = InitialPosition.center,
-      this.backgroundColor = Colors.white,
-      this.showCursor = true,
-      this.cursorColor = Colors.red,
-      this.activeItemTextColor = Colors.blue,
-      this.passiveItemsTextColor = Colors.grey,
-      this.suffix = "",})
-      : assert(minValue < maxValue);
+  HorizontalPicker({
+    required this.minValue,
+    required this.maxValue,
+    required this.divisions,
+    required this.onChanged,
+    this.initialPosition = InitialPosition.center,
+    this.backgroundColor = Colors.white,
+    this.showCursor = true,
+    this.cursorColor = Colors.red,
+    this.activeItemTextColor = Colors.blue,
+    this.passiveItemsTextColor = Colors.grey,
+    this.suffix = "",
+  }) : assert(minValue < maxValue);
 
   @override
-  _HorizantalPickerState createState() => _HorizantalPickerState();
+  _HorizontalPickerState createState() => _HorizontalPickerState();
 }
 
-class _HorizantalPickerState extends State<HorizantalPicker> {
+class _HorizontalPickerState extends State<HorizontalPicker> {
   List<double> valueList = [];
   late FixedExtentScrollController _scrollController;
   late int curItem;
@@ -76,10 +78,9 @@ class _HorizantalPickerState extends State<HorizantalPicker> {
 
   @override
   Widget build(BuildContext context) {
-    // _scrollController.jumpToItem(curItem);
     return Container(
-      padding: EdgeInsets.all(3),
-      margin: EdgeInsets.all(20),
+      padding: const EdgeInsets.all(3),
+      margin: const EdgeInsets.all(20),
       height: 100,
       alignment: Alignment.center,
       child: Scaffold(
@@ -122,112 +123,17 @@ class _HorizantalPickerState extends State<HorizantalPicker> {
               visible: widget.showCursor,
               child: Container(
                 alignment: Alignment.center,
-                padding: EdgeInsets.all(5),
+                padding: const EdgeInsets.all(5),
                 child: Container(
                   decoration: BoxDecoration(
-                      borderRadius: BorderRadius.all(Radius.circular(10)),
+                      borderRadius: const BorderRadius.all(
+                        Radius.circular(10),
+                      ),
                       color: widget.cursorColor.withOpacity(0.3)),
                   width: 3,
                 ),
               ),
             )
-          ],
-        ),
-      ),
-    );
-  }
-}
-
-class ItemWidget extends StatefulWidget {
-  final Map curItem;
-  final Color backgroundColor;
-  final String suffix;
-
-  ItemWidget(this.curItem, this.backgroundColor, this.suffix);
-
-  @override
-  _ItemWidgetState createState() => _ItemWidgetState();
-}
-
-class _ItemWidgetState extends State<ItemWidget> {
-  late List<String> textParts;
-  late String leftText, rightText;
-
-  @override
-  void initState() {
-    super.initState();
-    int decimalCount = 1;
-    num fac = pow(10, decimalCount);
-
-    var mtext = ((widget.curItem["value"] * fac).round() / fac).toString();
-    textParts = mtext.split(".");
-    leftText = textParts.first;
-    rightText = textParts.last;
-  }
-
-  @override
-  Widget build(BuildContext context) {
-    return Container(
-      padding: EdgeInsets.symmetric(horizontal: 10, vertical: 2),
-      decoration: BoxDecoration(
-        color: widget.backgroundColor,
-        borderRadius: BorderRadius.circular(10),
-      ),
-      child: RotatedBox(
-        quarterTurns: 1,
-        child: Column(
-          mainAxisSize: MainAxisSize.min,
-          mainAxisAlignment: MainAxisAlignment.center,
-          children: <Widget>[
-            Text(
-              "|",
-              style: TextStyle(fontSize: 8, color: widget.curItem["color"]),
-            ),
-            SizedBox(
-              height: 5,
-            ),
-            Row(
-              mainAxisAlignment: MainAxisAlignment.center,
-              crossAxisAlignment: CrossAxisAlignment.end,
-              children: <Widget>[
-                Text(
-                  leftText,
-                  style: TextStyle(
-                      fontSize: widget.curItem["fontSize"],
-                      color: widget.curItem["color"],
-                      fontWeight:
-                          rightText == "0" ? FontWeight.w800 : FontWeight.w400),
-                ),
-                Text(
-                  rightText == "0" ? "" : ".",
-                  style: TextStyle(
-                    fontSize: widget.curItem["fontSize"] - 3,
-                    color: widget.curItem["color"],
-                  ),
-                ),
-                Text(
-                  rightText == "0" ? "" : rightText,
-                  style: TextStyle(
-                      fontSize: widget.curItem["fontSize"] - 3,
-                      color: widget.curItem["color"]),
-                ),
-                (widget.suffix.isEmpty)
-                    ? SizedBox()
-                    : Text(
-                        widget.suffix,
-                        style: TextStyle(
-                            fontSize: widget.curItem["fontSize"],
-                            color: widget.curItem["color"]),
-                      )
-              ],
-            ),
-            SizedBox(
-              height: 5,
-            ),
-            Text(
-              "|",
-              style: TextStyle(fontSize: 8, color: widget.curItem["color"]),
-            ),
           ],
         ),
       ),

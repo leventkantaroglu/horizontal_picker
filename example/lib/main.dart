@@ -34,7 +34,7 @@ class _MyHomePageState extends State<MyHomePage> {
           Container(
             margin: EdgeInsets.all(10),
             height: 120,
-            child: HorizantalPicker(
+            child: HorizontalPicker(
               minValue: 0,
               maxValue: 10,
               divisions: 10,
@@ -44,7 +44,7 @@ class _MyHomePageState extends State<MyHomePage> {
           Container(
             margin: EdgeInsets.all(10),
             height: 120,
-            child: HorizantalPicker(
+            child: HorizontalPicker(
               minValue: 0,
               maxValue: 10,
               divisions: 10,
@@ -59,7 +59,7 @@ class _MyHomePageState extends State<MyHomePage> {
           Container(
             margin: EdgeInsets.all(10),
             height: 120,
-            child: HorizantalPicker(
+            child: HorizontalPicker(
               minValue: -10,
               maxValue: 55,
               divisions: 600,
@@ -70,7 +70,7 @@ class _MyHomePageState extends State<MyHomePage> {
               passiveItemsTextColor: Colors.amber,
               onChanged: (value) {
                 setState(() {
-                  newValue=value;
+                  newValue = value;
                 });
               },
             ),
