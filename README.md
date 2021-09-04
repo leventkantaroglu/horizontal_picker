@@ -1,3 +1,7 @@
+https://pub.dev/packages?q=developerchallenge
+
+[![Coverage Status](https://img.shields.io/codecov/c/github/mobxjs/mobx.dart/master.svg)](https://codecov.io/gh/mobxjs/mobx.dart)
+
 # Horizontal Picker
 
 You can select your value on Horizontal Picker while scrolling on items.
