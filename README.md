@@ -1,7 +1,3 @@
-
-
-[![Coverage Status](https://img.shields.io/badge/developer-challenge-informational)](https://pub.dev/packages?q=developerchallenge)
-
 # Horizontal Picker
 
 You can select your value on Horizontal Picker while scrolling on items.
