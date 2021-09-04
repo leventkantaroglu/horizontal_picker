@@ -1,6 +1,6 @@
-https://pub.dev/packages?q=developerchallenge
 
-[![Coverage Status](https://img.shields.io/codecov/c/github/mobxjs/mobx.dart/master.svg)](https://codecov.io/gh/mobxjs/mobx.dart)
+
+[![Coverage Status](https://img.shields.io/badge/developer-challenge-informational)](https://pub.dev/packages?q=developerchallenge)
 
 # Horizontal Picker
 
