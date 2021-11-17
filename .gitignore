@@ -29,10 +29,7 @@
 .pub-cache/
 .pub/
 /build/
-/example/ios/
-/example/android/
-/example/build/
-/example/.dart_tool/
+
 
 # Web related
 lib/generated_plugin_registrant.dart
