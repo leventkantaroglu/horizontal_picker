@@ -116,7 +116,10 @@ class _HorizontalPickerState extends State<HorizontalPicker> {
                   },
                   children: valueMap.map((Map curValue) {
                     return ItemWidget(
-                        curValue, widget.backgroundColor, widget.suffix);
+                      curValue,
+                      widget.backgroundColor,
+                      widget.suffix,
+                    );
                   }).toList()),
             ),
             Visibility(
@@ -126,10 +129,11 @@ class _HorizontalPickerState extends State<HorizontalPicker> {
                 padding: const EdgeInsets.all(5),
                 child: Container(
                   decoration: BoxDecoration(
-                      borderRadius: const BorderRadius.all(
-                        Radius.circular(10),
-                      ),
-                      color: widget.cursorColor.withOpacity(0.3)),
+                    borderRadius: const BorderRadius.all(
+                      Radius.circular(10),
+                    ),
+                    color: widget.cursorColor.withOpacity(0.3),
+                  ),
                   width: 3,
                 ),
               ),
