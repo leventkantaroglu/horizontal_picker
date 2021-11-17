@@ -1,4 +1,4 @@
-name: example
+name: horizontal_picker_example 
 description: An example Flutter project with horizontal_picker package.
 version: 1.0.0+1
 publish_to: none

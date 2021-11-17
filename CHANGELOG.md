@@ -1,3 +1,6 @@
+## [1.1.1]
+* Update example folder package name
+
 ## [1.1.0]
 * Update minimum to 2.12.0 flutter version to add null safety
 * Fix widget name
