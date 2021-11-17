@@ -28,55 +28,53 @@ class _MyHomePageState extends State<MyHomePage> {
   @override
   Widget build(BuildContext context) {
     return Scaffold(
-      body: Column(
-        mainAxisAlignment: MainAxisAlignment.center,
-        children: <Widget>[
-          Container(
-            margin: EdgeInsets.all(10),
-            height: 120,
-            child: HorizontalPicker(
-              minValue: 0,
-              maxValue: 10,
-              divisions: 10,
-              onChanged: (value) {},
-            ),
+      body: SafeArea(
+        child: SingleChildScrollView(
+          padding: EdgeInsets.all(10),
+          child: Column(
+            mainAxisAlignment: MainAxisAlignment.center,
+            children: <Widget>[
+              HorizontalPicker(
+                minValue: 0,
+                maxValue: 10,
+                divisions: 10,
+                height: 120,
+                onChanged: (value) {},
+              ),
+              Divider(),
+              HorizontalPicker(
+                minValue: 0,
+                maxValue: 10,
+                divisions: 10,
+                height: 120,
+                suffix: " \u00b0C",
+                showCursor: false,
+                backgroundColor: Colors.lightBlue.shade50,
+                activeItemTextColor: Colors.blue.shade800,
+                passiveItemsTextColor: Colors.blue.shade300,
+                onChanged: (value) {},
+              ),
+              Divider(),
+              HorizontalPicker(
+                minValue: -10,
+                maxValue: 55,
+                divisions: 600,
+                height: 120,
+                suffix: " cm",
+                showCursor: false,
+                backgroundColor: Colors.grey.shade900,
+                activeItemTextColor: Colors.white,
+                passiveItemsTextColor: Colors.amber,
+                onChanged: (value) {
+                  setState(() {
+                    newValue = value;
+                  });
+                },
+              ),
+              Text(newValue.toString())
+            ],
           ),
-          Container(
-            margin: EdgeInsets.all(10),
-            height: 120,
-            child: HorizontalPicker(
-              minValue: 0,
-              maxValue: 10,
-              divisions: 10,
-              suffix: " \u00b0C",
-              showCursor: false,
-              backgroundColor: Colors.lightBlue.shade50,
-              activeItemTextColor: Colors.blue.shade800,
-              passiveItemsTextColor: Colors.blue.shade300,
-              onChanged: (value) {},
-            ),
-          ),
-          Container(
-            margin: EdgeInsets.all(10),
-            height: 120,
-            child: HorizontalPicker(
-              minValue: -10,
-              maxValue: 55,
-              divisions: 600,
-              suffix: " cm",
-              showCursor: false,
-              backgroundColor: Colors.grey.shade900,
-              activeItemTextColor: Colors.white,
-              passiveItemsTextColor: Colors.amber,
-              onChanged: (value) {
-                setState(() {
-                  newValue = value;
-                });
-              },
-            ),
-          ),
-          Text(newValue.toString())
-        ],
+        ),
       ),
     );
   }

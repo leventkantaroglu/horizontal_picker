@@ -9,6 +9,7 @@ enum InitialPosition { start, center, end }
 class HorizontalPicker extends StatefulWidget {
   final double minValue, maxValue;
   final int divisions;
+  final double height;
   final Function(double) onChanged;
   final InitialPosition initialPosition;
   final Color backgroundColor;
@@ -22,6 +23,7 @@ class HorizontalPicker extends StatefulWidget {
     required this.minValue,
     required this.maxValue,
     required this.divisions,
+    required this.height,
     required this.onChanged,
     this.initialPosition = InitialPosition.center,
     this.backgroundColor = Colors.white,
@@ -37,11 +39,8 @@ class HorizontalPicker extends StatefulWidget {
 }
 
 class _HorizontalPickerState extends State<HorizontalPicker> {
-  List<double> valueList = [];
   late FixedExtentScrollController _scrollController;
   late int curItem;
-
-  int selectedFontSize = 14;
   List<Map> valueMap = [];
 
   @override
@@ -59,7 +58,7 @@ class _HorizontalPickerState extends State<HorizontalPicker> {
     setScrollController();
   }
 
-  setScrollController() {
+  void setScrollController() {
     int initialItem;
     switch (widget.initialPosition) {
       case InitialPosition.start:
@@ -79,67 +78,62 @@ class _HorizontalPickerState extends State<HorizontalPicker> {
   @override
   Widget build(BuildContext context) {
     return Container(
-      padding: const EdgeInsets.all(3),
-      margin: const EdgeInsets.all(20),
-      height: 100,
+      padding: const EdgeInsets.all(8),
+      height: widget.height,
       alignment: Alignment.center,
-      child: Scaffold(
-        backgroundColor: widget.backgroundColor,
-        body: Stack(
-          children: <Widget>[
-            RotatedBox(
-              quarterTurns: 3,
-              child: ListWheelScrollView(
-                  controller: _scrollController,
-                  itemExtent: 60,
-                  onSelectedItemChanged: (item) {
-                    curItem = item;
-                    setState(() {
-                      int decimalCount = 1;
-                      num fac = pow(10, decimalCount);
-                      valueMap[item]["value"] =
-                          (valueMap[item]["value"] * fac).round() / fac;
-                      widget.onChanged(valueMap[item]["value"]);
-                      for (var i = 0; i < valueMap.length; i++) {
-                        if (i == item) {
-                          valueMap[item]["color"] = widget.activeItemTextColor;
-                          valueMap[item]["fontSize"] = 15.0;
-                          valueMap[item]["hasBorders"] = true;
-                        } else {
-                          valueMap[i]["color"] = widget.passiveItemsTextColor;
-                          valueMap[i]["fontSize"] = 14.0;
-                          valueMap[i]["hasBorders"] = false;
-                        }
-                      }
-                    });
-                    setState(() {});
-                  },
-                  children: valueMap.map((Map curValue) {
-                    return ItemWidget(
-                      curValue,
-                      widget.backgroundColor,
-                      widget.suffix,
-                    );
-                  }).toList()),
-            ),
-            Visibility(
-              visible: widget.showCursor,
+      color: widget.backgroundColor,
+      child: Stack(
+        children: <Widget>[
+          RotatedBox(
+            quarterTurns: 3,
+            child: ListWheelScrollView(
+                controller: _scrollController,
+                itemExtent: 60,
+                onSelectedItemChanged: (item) {
+                  curItem = item;
+                  int decimalCount = 1;
+                  num fac = pow(10, decimalCount);
+                  valueMap[item]["value"] =
+                      (valueMap[item]["value"] * fac).round() / fac;
+                  widget.onChanged(valueMap[item]["value"]);
+                  for (var i = 0; i < valueMap.length; i++) {
+                    if (i == item) {
+                      valueMap[item]["color"] = widget.activeItemTextColor;
+                      valueMap[item]["fontSize"] = 15.0;
+                      valueMap[item]["hasBorders"] = true;
+                    } else {
+                      valueMap[i]["color"] = widget.passiveItemsTextColor;
+                      valueMap[i]["fontSize"] = 14.0;
+                      valueMap[i]["hasBorders"] = false;
+                    }
+                  }
+                  setState(() {});
+                },
+                children: valueMap.map((Map curValue) {
+                  return ItemWidget(
+                    curValue,
+                    widget.backgroundColor,
+                    widget.suffix,
+                  );
+                }).toList()),
+          ),
+          Visibility(
+            visible: widget.showCursor,
+            child: Container(
+              alignment: Alignment.center,
+              padding: const EdgeInsets.all(5),
               child: Container(
-                alignment: Alignment.center,
-                padding: const EdgeInsets.all(5),
-                child: Container(
-                  decoration: BoxDecoration(
-                    borderRadius: const BorderRadius.all(
-                      Radius.circular(10),
-                    ),
-                    color: widget.cursorColor.withOpacity(0.3),
+                decoration: BoxDecoration(
+                  borderRadius: const BorderRadius.all(
+                    Radius.circular(10),
                   ),
-                  width: 3,
+                  color: widget.cursorColor.withOpacity(0.3),
                 ),
+                width: 3,
               ),
-            )
-          ],
-        ),
+            ),
+          )
+        ],
       ),
     );
   }

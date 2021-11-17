@@ -1,3 +1,9 @@
+## [1.2.0]
+* Add height parameter
+
+## [1.1.2]
+* Fix overflow problem
+
 ## [1.1.1]
 * Update repo address and example folder package name
 
