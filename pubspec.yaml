@@ -1,9 +1,9 @@
 name: horizontal_picker
 version: 1.1.1
 description: You can select your value on Horizontal Picker while scrolling on items.
-homepage: https://github.com/levent-kantaroglu/
-repository: https://github.com/levent-kantaroglu/horizontal_picker
-documentation: https://github.com/levent-kantaroglu/horizontal_picker/blob/master/README.md
+homepage: https://github.com/leventkantaroglu/
+repository: https://github.com/leventkantaroglu/horizontal_picker
+documentation: https://github.com/leventkantaroglu/horizontal_picker/blob/master/README.md
 
 environment:
   sdk: ">=2.12.0 <3.0.0"
