@@ -6,11 +6,13 @@ class ItemWidget extends StatefulWidget {
   final Map curItem;
   final Color backgroundColor;
   final String suffix;
+  final String prefix;
 
   const ItemWidget(
     this.curItem,
     this.backgroundColor,
-    this.suffix, {
+    this.suffix,
+    this.prefix, {
     Key? key,
   }) : super(key: key);
 
@@ -60,6 +62,13 @@ class _ItemWidgetState extends State<ItemWidget> {
               RichText(
                 text: TextSpan(
                   children: [
+                    TextSpan(
+                      text: widget.prefix.isEmpty ? "" : widget.prefix,
+                      style: TextStyle(
+                        fontSize: widget.curItem["fontSize"],
+                        color: widget.curItem["color"],
+                      ),
+                    ),
                     TextSpan(
                       text: leftText,
                       style: TextStyle(

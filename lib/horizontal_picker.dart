@@ -18,6 +18,7 @@ class HorizontalPicker extends StatefulWidget {
   final Color activeItemTextColor;
   final Color passiveItemsTextColor;
   final String suffix;
+  final String prefix;
 
   HorizontalPicker({
     required this.minValue,
@@ -32,6 +33,7 @@ class HorizontalPicker extends StatefulWidget {
     this.activeItemTextColor = Colors.blue,
     this.passiveItemsTextColor = Colors.grey,
     this.suffix = "",
+    this.prefix = "",
   }) : assert(minValue < maxValue);
 
   @override
@@ -114,6 +116,7 @@ class _HorizontalPickerState extends State<HorizontalPicker> {
                     curValue,
                     widget.backgroundColor,
                     widget.suffix,
+                    widget.prefix,
                   );
                 }).toList()),
           ),
