@@ -63,7 +63,7 @@ class _ItemWidgetState extends State<ItemWidget> {
                 text: TextSpan(
                   children: [
                     TextSpan(
-                      text: widget.prefix.isEmpty ? "" : widget.prefix,
+                      text: widget.prefix.isEmpty ? "@" : widget.prefix,
                       style: TextStyle(
                         fontSize: widget.curItem["fontSize"],
                         color: widget.curItem["color"],
